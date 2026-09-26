@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ramchandra's Digital Store</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>🛒 Ramchandra's Digital Store</h1>
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search products..."
+        >
+
+        <div class="header-actions">
+            <button id="track-order-button">
+                Track Order 📦
+            </button>
+
+            <button id="admin-button">
+                Demo Admin ⚙️
+            </button>
+
+            <button id="cart-button">
+                Cart 🛒 (<span id="cart-count">0</span>)
+            </button>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <h2>Our Products</h2>
+
+        <div id="product-container"></div>
+
+    </main>
+
+
+    <!-- CART -->
+
+    <div id="cart-overlay">
+
+        <div id="cart-box">
+
+            <div class="cart-header">
+
+                <h2>Your Cart 🛒</h2>
+
+                <button id="close-cart">✕</button>
+
+            </div>
+
+
+            <!-- CART PRODUCTS -->
+
+            <div id="cart-items"></div>
+
+
+            <!-- CART TOTAL -->
+
+            <div class="cart-footer">
+
+                <div class="cart-total">
+                    Total: ₹<span id="cart-total">0</span>
+                </div>
+
+                <button id="checkout-button">
+                    Checkout
+                </button>
+
+            </div>
+
+
+            <!-- CHECKOUT -->
+
+            <div id="checkout-section">
+
+                <div class="checkout-header">
+
+                    <h2>Checkout</h2>
+
+                    <button id="back-to-cart">
+                        ← Back to Cart
+                    </button>
+
+                </div>
+
+
+                <form id="checkout-form">
+
+                    <label for="customer-name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customer-name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+
+                    <label for="customer-phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customer-phone"
+                        placeholder="Enter phone number"
+                        maxlength="10"
+                        required
+                    >
+
+
+                    <label for="customer-address">
+                        Delivery Address
+                    </label>
+
+                    <textarea
+                        id="customer-address"
+                        placeholder="House number, street, village/town"
+                        required
+                    ></textarea>
+
+
+                    <label for="customer-city">
+                        City
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customer-city"
+                        placeholder="Enter your city"
+                        required
+                    >
+
+
+                    <label for="customer-pin">
+                        PIN Code
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customer-pin"
+                        placeholder="Enter PIN code"
+                        maxlength="6"
+                        required
+                    >
+
+
+                    <h3 class="payment-title">
+                        Payment Method
+                    </h3>
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="cod"
+                            checked
+                        >
+
+                        Cash on Delivery
+                    </label>
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="online"
+                        >
+
+                        Online Payment
+                    </label>
+
+
+                    <div class="checkout-final-total">
+
+                        Order Total:
+
+                        ₹<span id="checkout-total">0</span>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        id="place-order-button"
+                    >
+                        Place Order
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ORDER TRACKING -->
+    <div id="tracking-overlay" class="modal-overlay">
+        <div class="tracking-box">
+            <div class="modal-header">
+                <h2>Track Your Order 📦</h2>
+                <button id="close-tracking">✕</button>
+            </div>
+
+            <div class="tracking-content">
+                <p>Enter your demo Order ID:</p>
+                <div class="tracking-search">
+                    <input type="text" id="tracking-id" placeholder="Example: RDS-123456">
+                    <button id="track-button">Track</button>
+                </div>
+                <div id="tracking-result"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DEMO ADMIN -->
+    <div id="admin-overlay" class="modal-overlay">
+        <div class="admin-box">
+            <div class="modal-header">
+                <h2>Demo Admin Panel ⚙️</h2>
+                <button id="close-admin">✕</button>
+            </div>
+            <div class="admin-content">
+                <p class="demo-note">Demo only: orders are stored in this browser using localStorage.</p>
+                <div id="admin-orders"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
